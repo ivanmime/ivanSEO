@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { createContext, useContext, useState } from 'react';
 import { translations } from '../translations';
 
 const LanguageContext = createContext();
@@ -13,34 +12,13 @@ export const useLanguage = () => {
 };
 
 const LanguageProvider = ({ children }) => {
+  // App is Spanish-only now
   const [language, setLanguage] = useState('es');
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  // Extract language from URL
-  const getLanguageFromPath = (pathname) => {
-    const pathSegments = pathname.split('/').filter(Boolean);
-    const langFromPath = pathSegments[0];
-    return ['es', 'en'].includes(langFromPath) ? langFromPath : 'es';
-  };
-
-  useEffect(() => {
-    const currentLang = getLanguageFromPath(location.pathname);
-    setLanguage(currentLang);
-  }, [location.pathname]);
 
   const changeLanguage = (lang) => {
-    if (!['es', 'en'].includes(lang)) return;
-    
-    const currentPath = location.pathname;
-    const hash = location.hash;
-    
-    // Extract the section hash if present
-    const sectionHash = hash.startsWith('#') ? hash : '';
-    
-    // Navigate to new language path
-    navigate(`/${lang}${sectionHash}`, { replace: true });
-    setLanguage(lang);
+    // No-op: only Spanish supported
+    if (lang !== 'es') return;
+    setLanguage('es');
   };
 
   const t = (key) => {
@@ -54,14 +32,10 @@ const LanguageProvider = ({ children }) => {
     return value || key;
   };
 
-  // Helper function to get localized path
-  const getLocalizedPath = (path = '') => {
-    return `/${language}${path}`;
-  };
-
-  // Helper function to navigate with language preservation
+  // Keep helpers as no-ops to avoid breaking callers elsewhere
+  const getLocalizedPath = (path = '') => `/${language}${path}`;
   const navigateWithLang = (path) => {
-    navigate(getLocalizedPath(path));
+    // no-op in Spanish-only mode
   };
 
   return (

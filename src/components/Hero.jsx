@@ -42,11 +42,17 @@ const Hero = () => {
             transition={{ delay: 0.6 }}
             className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6"
           >
-            Ivan
-            <span className="block text-primary-600 dark:text-primary-400 text-3xl md:text-5xl mt-2">
-              {t('hero.subtitle')}
-            </span>
+            Ivan — <span className="text-primary-600 dark:text-primary-400">{t('hero.title')}</span>
           </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="block text-primary-600 dark:text-primary-400 text-3xl md:text-5xl mt-2 font-semibold mb-6"
+          >
+            {t('hero.subtitle')}
+          </motion.h2>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

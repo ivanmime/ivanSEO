@@ -9,7 +9,6 @@ import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import Skills from './components/Skills';
 import Results from './components/Results';
-import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ThemeProvider from './context/ThemeContext';
@@ -29,38 +28,26 @@ const MainPage = () => (
     <Services />
     <Portfolio />
     <Skills />
-    <Blog />
     <Contact />
   </motion.main>
 );
 
 function App() {
   return (
-    <ThemeProvider>
-      <LanguageProvider>
-        <Router>
+    <Router>
+      <ThemeProvider>
+        <LanguageProvider>
           <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
             <Header />
             <Routes>
-              {/* Redirect root to Spanish by default */}
-              <Route path="/" element={<Navigate to="/es" replace />} />
-              
-              {/* Spanish routes */}
-              <Route path="/es" element={<MainPage />} />
-              <Route path="/es/*" element={<MainPage />} />
-              
-              {/* English routes */}
-              <Route path="/en" element={<MainPage />} />
-              <Route path="/en/*" element={<MainPage />} />
-              
-              {/* Catch all - redirect to Spanish */}
-              <Route path="*" element={<Navigate to="/es" replace />} />
+              <Route path="/" element={<MainPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
             <Footer />
           </div>
-        </Router>
-      </LanguageProvider>
-    </ThemeProvider>
+        </LanguageProvider>
+      </ThemeProvider>
+    </Router>
   );
 }
 

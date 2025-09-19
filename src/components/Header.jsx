@@ -6,7 +6,7 @@ import Logo from './Logo';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 
-const { FiMenu, FiX, FiSun, FiMoon, FiGlobe } = FiIcons;
+const { FiMenu, FiX, FiSun, FiMoon } = FiIcons;
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,7 +28,6 @@ const Header = () => {
     { href: '#experience', label: t('nav.experience') },
     { href: '#services', label: t('nav.services') },
     { href: '#portfolio', label: t('nav.portfolio') },
-    { href: '#blog', label: t('nav.blog') },
     { href: '#contact', label: t('nav.contact') }
   ];
 
@@ -80,35 +79,6 @@ const Header = () => {
               </motion.button>
             ))}
 
-            {/* Language Switcher */}
-            <div className="relative group">
-              <button className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex items-center">
-                <SafeIcon icon={FiGlobe} size={20} className="mr-1" />
-                <span className="text-sm font-medium">{language.toUpperCase()}</span>
-              </button>
-              <div className="absolute right-0 mt-2 py-2 w-24 bg-white dark:bg-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <button
-                  onClick={() => changeLanguage('es')}
-                  className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 ${
-                    language === 'es' 
-                      ? 'text-primary-600 dark:text-primary-400 font-semibold' 
-                      : 'text-gray-700 dark:text-gray-300'
-                  }`}
-                >
-                  🇪🇸 ES
-                </button>
-                <button
-                  onClick={() => changeLanguage('en')}
-                  className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 ${
-                    language === 'en' 
-                      ? 'text-primary-600 dark:text-primary-400 font-semibold' 
-                      : 'text-gray-700 dark:text-gray-300'
-                  }`}
-                >
-                  🇬🇧 EN
-                </button>
-              </div>
-            </div>
 
             <button
               onClick={toggleTheme}
@@ -129,13 +99,6 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-4">
-            {/* Mobile Language Switcher */}
-            <button
-              onClick={() => changeLanguage(language === 'es' ? 'en' : 'es')}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium"
-            >
-              {language === 'es' ? '🇬🇧' : '🇪🇸'}
-            </button>
 
             <button
               onClick={toggleTheme}

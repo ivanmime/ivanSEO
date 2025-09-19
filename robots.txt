@@ -1,0 +1,15 @@
+# robots.txt — Configuración básica
+# Reemplaza https://www.example.com por tu dominio real antes de publicar.
+
+User-agent: *
+Disallow:
+
+# Si quieres bloquear rutas internas específicas, añádelas así:
+# Disallow: /admin/
+# Disallow: /secret/
+
+# Indicamos el sitemap para ayudar a los rastreadores
+Sitemap: https://www.example.com/sitemap.xml
+
+# Host (opcional, reconocido por algunos motores)
+Host: https://www.example.com

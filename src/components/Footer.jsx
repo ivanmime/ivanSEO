@@ -47,13 +47,13 @@ const Footer = () => {
             </div>
             <div className="flex space-x-4">
               <a
-                href="mailto:seo@expert.com"
+                href="mailto:ivanseo97@gmail.com"
                 className="bg-primary-600 hover:bg-primary-700 p-3 rounded-lg transition-colors"
               >
                 <SafeIcon icon={FiMail} size={20} />
               </a>
               <a
-                href="https://linkedin.com/in/seoexpert"
+                href="https://www.linkedin.com/in/ivan-miragaya-mendez/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-primary-600 hover:bg-primary-700 p-3 rounded-lg transition-colors"
@@ -140,10 +140,10 @@ const Footer = () => {
               © 2024 Ivan - SEO Expert. Todos los derechos reservados.
             </div>
             <div className="flex items-center space-x-6">
-              <a href="#" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+              <a href="/privacy" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
                 Política de Privacidad
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+              <a href="/terms" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
                 Términos de Servicio
               </a>
               <motion.button

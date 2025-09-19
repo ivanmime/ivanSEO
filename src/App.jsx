@@ -11,6 +11,8 @@ import Skills from './components/Skills';
 import Results from './components/Results';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Privacy from './components/Privacy';
+import Terms from './components/Terms';
 import ThemeProvider from './context/ThemeContext';
 import LanguageProvider from './context/LanguageContext';
 
@@ -41,6 +43,8 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<MainPage />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
             <Footer />
